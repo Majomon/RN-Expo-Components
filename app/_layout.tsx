@@ -16,6 +16,8 @@ import "../global.css";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { ThemeView } from "@/presentation/shared/ThemeView";
 import { ThemeText } from "@/presentation/shared/ThemeText";
+import { Stack } from "expo-router";
+import { allRoutes } from "@/constants/Routes";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
@@ -41,12 +43,28 @@ export default function RootLayout() {
       style={{ flex: 1, backgroundColor: backgroundColor }}
     >
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <ThemeView margin safe>
-          <ThemeText type="h1">Hola mundo</ThemeText>
-        </ThemeView>
-        {/*       <Stack>
- 
-      </Stack> */}
+        <Stack
+          screenOptions={{
+            headerShadowVisible: false,
+            contentStyle: {
+              backgroundColor: backgroundColor,
+            },
+            headerStyle: {
+              backgroundColor: backgroundColor,
+            },
+          }}
+        >
+          <Stack.Screen name="index" options={{ title: "" }} />
+          {allRoutes.map((route) => (
+            <Stack.Screen
+              key={route.name}
+              name={route.name}
+              options={{
+                title: route.title,
+              }}
+            />
+          ))}
+        </Stack>
         <StatusBar style="auto" />
       </ThemeProvider>
     </GestureHandlerRootView>
