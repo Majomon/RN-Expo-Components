@@ -26,7 +26,6 @@ const ComponentsApp = () => {
       <View className="my-3" />
 
       {uiMenuRoutes.map((route, index) => (
-        // <Link href={route.name.split("/")[0] as Href}>{route.title}</Link>
         <MenuItem
           key={route.title}
           title={route.title}
@@ -40,7 +39,6 @@ const ComponentsApp = () => {
       <View className="my-3" />
 
       {menuRoutes.map((route, index) => (
-        // <Link href={route.name.split("/")[0] as Href}>{route.title}</Link>
         <MenuItem
           key={route.title}
           title={route.title}
