@@ -12,7 +12,7 @@ export const ThemeText = ({ className, type, children, ...rest }: Props) => {
   return (
     <Text
       className={[
-        " text-light-primary dark:text-dark-primary",
+        " text-light-text dark:text-dark-text",
         type === "normal" ? "font-normal" : undefined,
         type === "h1" ? "text-3xl" : undefined,
         type === "h2" ? "text-xl" : undefined,
