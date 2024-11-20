@@ -1,15 +1,24 @@
 import { ThemeButton } from "@/presentation/shared/ThemeButton";
 import { ThemeView } from "@/presentation/shared/ThemeView";
 import { useRef } from "react";
-import { Animated, View } from "react-native";
+import { Animated, Easing, View } from "react-native";
 
 const Animation101Screen = () => {
   const animatedOpacity = useRef(new Animated.Value(0)).current;
+  const animatedTop = useRef(new Animated.Value(-100)).current;
 
   const fadeIn = () => {
     Animated.timing(animatedOpacity, {
       toValue: 1,
       duration: 300,
+      useNativeDriver: true,
+    }).start();
+
+    Animated.timing(animatedTop, {
+      toValue: 0,
+      duration: 700,
+      // easing: Easing.elastic(6),
+      easing: Easing.bounce,
       useNativeDriver: true,
     }).start();
   };
@@ -19,7 +28,8 @@ const Animation101Screen = () => {
       toValue: 0,
       duration: 300,
       useNativeDriver: true,
-    }).start();
+      // }).start(() => animatedTop.setValue(-100));
+    }).start(() => animatedTop.resetAnimation());
   };
 
   return (
@@ -30,6 +40,11 @@ const Animation101Screen = () => {
           width: 150,
           height: 150,
           opacity: animatedOpacity,
+          transform: [
+            {
+              translateY: animatedTop,
+            },
+          ],
         }}
       />
       <ThemeButton className="my-5" onPress={fadeIn}>
