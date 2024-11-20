@@ -2,7 +2,6 @@ import { ThemeCard } from "@/presentation/shared/ThemeCard";
 import { ThemedSwitch } from "@/presentation/shared/ThemedSwitch";
 import { ThemeView } from "@/presentation/shared/ThemeView";
 import { useState } from "react";
-import { Switch } from "react-native";
 
 const Switches = () => {
   const [state, setState] = useState({
@@ -25,6 +24,20 @@ const Switches = () => {
           text="Activo"
           value={state.isActive}
           onValueChange={(value) => setState({ ...state, isActive: value })}
+          className="mb-2"
+        />
+
+        <ThemedSwitch
+          text="Hambriento"
+          value={state.isHungry}
+          onValueChange={(value) => setState({ ...state, isHungry: value })}
+          className="mb-2"
+        />
+
+        <ThemedSwitch
+          text="Contento"
+          value={state.isHappy}
+          onValueChange={(value) => setState({ ...state, isHappy: value })}
           className="mb-2"
         />
       </ThemeCard>
