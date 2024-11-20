@@ -8,7 +8,7 @@ interface Props extends TextProps {
   type?: TextType;
 }
 
-export const ThemeText = ({ className, type, children, ...rest }: Props) => {
+export const ThemedText = ({ className, type, children, ...rest }: Props) => {
   return (
     <Text
       className={[

@@ -1,9 +1,9 @@
 import { Href, router } from "expo-router";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
-import { ThemeText } from "../shared/ThemeText";
 import { Ionicons } from "@expo/vector-icons";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { ThemedText } from "../shared/ThemedText";
 
 interface Props {
   title: string;
@@ -42,7 +42,7 @@ export const MenuItem = ({
     >
       <View className="flex-row items-center">
         <Ionicons name={icon} size={30} color={primaryColor} className="mr-5" />
-        <ThemeText type="h2">{title}</ThemeText>
+        <ThemedText type="h2">{title}</ThemedText>
       </View>
     </Pressable>
   );

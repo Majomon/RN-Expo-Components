@@ -1,6 +1,6 @@
 import { useAnimation } from "@/hooks/useAnimation";
-import { ThemeButton } from "@/presentation/shared/ThemeButton";
-import { ThemeView } from "@/presentation/shared/ThemeView";
+import { ThemedButton } from "@/presentation/shared/ThemedButton";
+import { ThemedView } from "@/presentation/shared/ThemedView";
 import { useRef } from "react";
 import { Animated, Easing, View } from "react-native";
 
@@ -14,7 +14,7 @@ const Animation101Screen = () => {
   } = useAnimation();
 
   return (
-    <ThemeView margin className="flex-1 justify-center items-center">
+    <ThemedView margin className="flex-1 justify-center items-center">
       <Animated.View
         className="bg-light-secondary dark:bg-dark-secondary rounded-xl"
         style={{
@@ -28,7 +28,7 @@ const Animation101Screen = () => {
           ],
         }}
       />
-      <ThemeButton
+      <ThemedButton
         className="my-5"
         onPress={() => {
           fadeIn({});
@@ -38,11 +38,11 @@ const Animation101Screen = () => {
         }}
       >
         FadeIn
-      </ThemeButton>
-      <ThemeButton className="my-5" onPress={() => fadeOut({})}>
+      </ThemedButton>
+      <ThemedButton className="my-5" onPress={() => fadeOut({})}>
         FadeOut
-      </ThemeButton>
-    </ThemeView>
+      </ThemedButton>
+    </ThemedView>
   );
 };
 export default Animation101Screen;

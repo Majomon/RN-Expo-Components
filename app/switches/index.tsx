@@ -1,6 +1,7 @@
-import { ThemeCard } from "@/presentation/shared/ThemeCard";
+
+import { ThemedCard } from "@/presentation/shared/ThemedCard";
 import { ThemedSwitch } from "@/presentation/shared/ThemedSwitch";
-import { ThemeView } from "@/presentation/shared/ThemeView";
+import { ThemedView } from "@/presentation/shared/ThemedView";
 import { useState } from "react";
 
 const Switches = () => {
@@ -11,8 +12,8 @@ const Switches = () => {
   });
 
   return (
-    <ThemeView margin className="mt-2">
-      <ThemeCard>
+    <ThemedView margin className="mt-2">
+      <ThemedCard>
         {/*         <Switch
           trackColor={{ false: "#767577", true: "#81b0ff" }}
           thumbColor={state.isActive ? "#f5dd4b" : "#f4f3f4"}
@@ -40,8 +41,8 @@ const Switches = () => {
           onValueChange={(value) => setState({ ...state, isHappy: value })}
           className="mb-2"
         />
-      </ThemeCard>
-    </ThemeView>
+      </ThemedCard>
+    </ThemedView>
   );
 };
 export default Switches;

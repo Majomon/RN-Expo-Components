@@ -1,7 +1,7 @@
 import React from "react";
 import { Platform, Pressable, Switch, Text, View } from "react-native";
-import { ThemeText } from "./ThemeText";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { ThemedText } from "./ThemedText";
 
 interface Props {
   text?: string;
@@ -25,7 +25,7 @@ export const ThemedSwitch = ({
       className={`flex flex-row mx-2 justify-between items-center active:opacity-80 ${className}`}
       onPress={() => onValueChange(!value)}
     >
-      {text ? <ThemeText type="h2">{text}</ThemeText> : <View />}
+      {text ? <ThemedText type="h2">{text}</ThemedText> : <View />}
       <Switch
         value={value}
         onValueChange={onValueChange}

@@ -4,13 +4,13 @@ import {
   uiMenuRoutes,
 } from "@/constants/Routes";
 import { MenuItem } from "@/presentation/menu/MenuItem";
-import { ThemeView } from "@/presentation/shared/ThemeView";
+import { ThemedView } from "@/presentation/shared/ThemedView";
 import React from "react";
 import { View } from "react-native";
 
 const ComponentsApp = () => {
   return (
-    <ThemeView margin>
+    <ThemedView margin>
       {animationMenuRoutes.map((route, index) => (
         // <Link href={route.name.split("/")[0] as Href}>{route.title}</Link>
         <MenuItem
@@ -48,7 +48,7 @@ const ComponentsApp = () => {
           isLast={index === menuRoutes.length - 1}
         />
       ))}
-    </ThemeView>
+    </ThemedView>
   );
 };
 

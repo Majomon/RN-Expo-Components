@@ -10,7 +10,7 @@ interface Props extends ViewProps {
   bgColor?: string;
 }
 
-export const ThemeView = ({
+export const ThemedView = ({
   style,
   className,
   margin = false,
