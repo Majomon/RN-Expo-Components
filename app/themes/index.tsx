@@ -3,7 +3,6 @@ import { ThemedSwitch } from "@/presentation/shared/ThemedSwitch";
 import { ThemedView } from "@/presentation/shared/ThemedView";
 import { useColorScheme } from "nativewind";
 import { useState } from "react";
-import { View, Text } from "react-native";
 
 const ThemesScreen = () => {
   const { colorScheme, setColorScheme } = useColorScheme();
@@ -11,7 +10,7 @@ const ThemesScreen = () => {
     darkMode: colorScheme === "dark",
     systemMode: false,
   });
-  
+
   const setDarkMode = (value: boolean) => {
     setColorScheme(value ? "dark" : "light");
     setDarkModeSettings({
