@@ -8,18 +8,8 @@ import { Platform } from "react-native";
 
 const Modal = () => {
   return (
-    <ThemedView
-      className="flex-1 justify-center items-center"
-      bgColor="#A52182"
-    >
-      <ThemedText>Soy un modal</ThemedText>
-
-      <ThemedButton
-        className="my-4"
-        onPress={() => router.push("/modal/modal-window-2")}
-      >
-        Otro modal
-      </ThemedButton>
+    <ThemedView className="flex-1 justify-center items-center">
+      <ThemedText>Soy otro modal</ThemedText>
 
       <ThemedButton onPress={() => router.dismiss()}>Cerrar</ThemedButton>
 

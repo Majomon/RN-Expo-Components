@@ -9,7 +9,17 @@ const ModalLayout = () => {
       <Stack.Screen
         name="modal-window"
         options={{
-          presentation: "modal",
+          presentation: "transparentModal",
+          animation: "fade",
+          headerShown: false,
+        }}
+      />
+            <Stack.Screen
+        name="modal-window-2"
+        options={{
+          presentation: "transparentModal",
+          animation: "fade",
+          headerShown: false,
         }}
       />
     </Stack>
