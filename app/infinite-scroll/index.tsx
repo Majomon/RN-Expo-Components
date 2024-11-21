@@ -1,9 +1,11 @@
+import { useThemeColor } from "@/hooks/useThemeColor";
 import { ThemedText } from "@/presentation/shared/ThemedText";
 import { ThemedView } from "@/presentation/shared/ThemedView";
 import { useState } from "react";
-import { FlatList, Image } from "react-native";
+import { ActivityIndicator, FlatList, Image, View } from "react-native";
 
 const InfiniteScrollScreen = () => {
+  const primaryColor = useThemeColor({}, "primary");
   const [numbers, setNumbers] = useState([0, 1, 2, 3, 4, 5]);
 
   const loadMore = () => {
@@ -22,6 +24,11 @@ const InfiniteScrollScreen = () => {
         onEndReached={loadMore}
         // Porcentaje del scroll para realizar la petición
         onEndReachedThreshold={0.6}
+        ListFooterComponent={() => (
+          <View style={{ height: 150, justifyContent: "center" }}>
+            <ActivityIndicator size={40} color={primaryColor} />
+          </View>
+        )}
       />
     </ThemedView>
   );
