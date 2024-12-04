@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "components-app",
+    "name": "Componentes RN",
     "slug": "components-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.mauriciomonzon.expo_components_app"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +37,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f5734172-ef66-4719-b695-890c0000e5a4"
+      }
     }
   }
 }
