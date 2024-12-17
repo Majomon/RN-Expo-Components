@@ -1,3 +1,4 @@
+import React from "react";
 import {
   DarkTheme,
   DefaultTheme,
@@ -10,6 +11,7 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "react-native-reanimated";
+import { BannerAd, BannerAdSize, TestIds } from "react-native-google-mobile-ads"
 
 import { allRoutes } from "@/constants/Routes";
 import { useColorScheme } from "@/hooks/useColorScheme";
@@ -38,37 +40,49 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView
-      style={{ flex: 1, backgroundColor: backgroundColor }}
-    >
-      <ThemeChangerProvider>
-        {/* <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}> */}
-        <Stack
-          screenOptions={{
-            headerShadowVisible: false,
-            contentStyle: {
-              backgroundColor: backgroundColor,
-            },
-            headerStyle: {
-              backgroundColor: backgroundColor,
-            },
-          }}
-        >
-          <Stack.Screen name="index" options={{ title: "" }} />
-          {allRoutes.map((route) => (
-            <Stack.Screen
-              key={route.name}
-              name={route.name}
-              options={{
-                title: route.title,
-                headerShown: !route.title.includes("Slides"),
-              }}
-            />
-          ))}
-        </Stack>
-        <StatusBar style="auto" />
-        {/* </ThemeProvider> */}
-      </ThemeChangerProvider>
-    </GestureHandlerRootView>
+    <>
+      <GestureHandlerRootView
+        style={{ flex: 1, backgroundColor: backgroundColor }}
+      >
+        <ThemeChangerProvider>
+          {/* <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}> */}
+          <Stack
+            screenOptions={{
+              headerShadowVisible: false,
+              contentStyle: {
+                backgroundColor: backgroundColor,
+              },
+              headerStyle: {
+                backgroundColor: backgroundColor,
+              },
+            }}
+          >
+            <Stack.Screen name="index" options={{ title: "" }} />
+            {allRoutes.map((route) => (
+              <Stack.Screen
+                key={route.name}
+                name={route.name}
+                options={{
+                  title: route.title,
+                  headerShown: !route.title.includes("Slides"),
+                }}
+              />
+            ))}
+          </Stack>
+          <StatusBar style="auto" />
+          {/* </ThemeProvider> */}
+        </ThemeChangerProvider>
+      </GestureHandlerRootView>
+      <BannerAd
+        unitId={TestIds.BANNER}
+        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+        requestOptions={{
+          requestNonPersonalizedAdsOnly: true,
+          networkExtras: {
+            collapsible: "bottom"
+          }
+        }}
+      />
+    </>
   );
 }
